@@ -67,13 +67,35 @@ AUTHENTIK_EMAIL__FROM=authentik@localhost
 
 (Modify the values according to your SMTP settings.)
 
-## 🐳 **Step 7: Deploy the containers**
+## 🐳 **Step 7: Append following lines in .env file**
+This is primarily to define postgresql credentials and for adding containers for NGINX & NGINX Proxy Manager (NPM)
+
+PG_USER=authentik
+PG_PASS=supersecurepassword
+PG_DB=authentik
+
+AUTHENTIK_IMAGE=ghcr.io/goauthentik/server
+AUTHENTIK_TAG=2024.12.3
+
+NPM_DB_HOST=npm-db
+NPM_DB_PORT=3306
+NPM_DB_NAME=npm
+NPM_DB_USER=npm_user
+NPM_DB_PASSWORD=npm_password
+
+NPM_HTTP_PORT=80
+NPM_HTTPS_PORT=443
+NPM_UI_PORT=81
+
+
+
+## 🐳 **Step 8: Deploy the containers**
 
 docker compose up -d
 Verify the services are running:
 docker ps
 
-## 🌐 **Step 8: Set Up Reverse Proxy in NGINX Proxy Manager**
+## 🌐 **Step 9: Set Up Reverse Proxy in NGINX Proxy Manager**
 
 Access NPM Admin Panel:
 Open http://<your-server-ip>:81 in your browser.
@@ -84,13 +106,13 @@ Forward Hostname/IP: server
 Forward Port: 9000
 Enable Websockets & SSL
 
-## 🎉 **Step 9: Complete Authentik Setup**
+## 🎉 **Step 10: Complete Authentik Setup**
 
 http://<your-server-ip>/if/flow/initial-setup/
 Set up an admin username & password.
 Log in and start configuring Authentik IDP!
 
-## 🔥 **Step 10: Troubleshooting**
+## 🔥 **Step 11: Troubleshooting**
  
 Check logs:
 docker compose logs -f
