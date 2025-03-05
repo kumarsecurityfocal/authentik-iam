@@ -6,7 +6,7 @@ This guide provides a step-by-step approach to deploying **Authentik IDP** using
 
 ## 🏗️ **Prerequisites**
 Before proceeding, ensure you have:
-- A domain name (e.g., `authentik.goskope.com`)
+- A domain name (e.g., `authentik.securityfocal.com`)
 - An **AWS Elastic IP Address** (or a static IP)
 - An **Ubuntu Server** with at least:
   - **2 CPU Cores**
